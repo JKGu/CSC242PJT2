@@ -44,7 +44,7 @@ public class AustraliaCSP extends core.CSP {
 
 	public static void main(String[] args) {
 		System.out.println("Australia Map Coloring Problem (AIMA 6.1.1)");
-		CSP csp = new aus.CSP();
+		CSP csp = new aus.CSP();//Why aus???? CSP is in core package
 		System.out.println(csp);
 		System.out.println("Backtracking search solver");
 		Solver solver = new solver.BacktrackingSearchSolver();

@@ -1,5 +1,8 @@
 package core;
 
-public class Solver {
+public abstract class Solver {
 	
+	
+	
+
 }
