@@ -3,7 +3,7 @@ package core;
 import java.util.HashSet;
 import java.util.List;
 
-public class CSP {
+public abstract class CSP {
 	protected HashSet<core.Variable> variables;
 	protected HashSet<core.Constraint> constraints;
 	
