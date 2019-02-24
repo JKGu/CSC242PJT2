@@ -1,31 +1,32 @@
 package core;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Domain implements Iterable<Object> {
-	protected Object[] values;
+public class Domain {
 	
-	public Domain(List<?> values) {
-		this.values=new Object[values.size()];
-		for(int i=0; i<values.size(); i++) {
-			this.values[i]=values.get(i);
-		}
+	protected ArrayList<Object> values;
+	
+	public Domain(ArrayList<Object> values) {
+		this.values=values;
 	}
     public Domain(Object[] values) {
-        this.values = new Object[values.length];
+        this.values = new ArrayList<Object>();
         for (int i = 0; i < values.length; i++)
-            this.values[i] = values[i];
+            this.values.add(values[i]);
     }
-
-	@Override
-	public Iterator<Object> iterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	public static Domain rgbDomain() {
-		String r="RED"; String g="GREEN"; String b="BLUE";
-		return new Domain(new Object[] {r, g, b});
+		return new Domain(new String[] {"RED", "GREEN", "BLUE"});
+	}
+	
+	public ArrayList<Object> getDomain() {
+		return this.values;
+	}
+	
+	@Override
+	public String toString() {
+		return values.toString();
 	}
 }

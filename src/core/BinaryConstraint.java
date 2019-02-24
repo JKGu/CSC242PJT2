@@ -2,22 +2,20 @@ package core;
 
 import java.util.List;
 
-public class BinaryConstraint implements Constraint{
+public abstract class BinaryConstraint implements Constraint{
+	
+	protected Variable v1;
+	protected Variable v2;
 	
 	public BinaryConstraint(Variable v1, Variable v2) {
-		//TODO
+		this.v1=v1;
+		this.v2=v2;
 	}
 	
 	@Override
 	public List<Variable> getScope() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public boolean isSatisfiedWith(Assignment assignment) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 	
 }
