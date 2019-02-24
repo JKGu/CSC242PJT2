@@ -1,6 +1,8 @@
 package aus;
 
 import core.*;
+import solver.*;
+
 import java.util.Date;
 import java.util.HashSet;
 
@@ -47,7 +49,7 @@ public class AustraliaCSP extends core.CSP {
 		CSP csp = new AustraliaCSP();
 		System.out.println(csp);
 		System.out.println("Backtracking search solver");
-		Solver solver = new BacktrackingSearchSolver();
+		Solver solver = new solver.BacktrackingSearchSolver();
 		long start = new Date().getTime();
 		Assignment result = solver.solve(csp);
 		long end = new Date().getTime();

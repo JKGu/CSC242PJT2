@@ -65,4 +65,8 @@ public class Assignment {
 		if(this.isFailure) return "FAILURE";
 		return valueMap.toString();
 	}
+	
+	public void remove(Object key, Object value) {
+		this.valueMap.remove(key, value);
+	}
 }
