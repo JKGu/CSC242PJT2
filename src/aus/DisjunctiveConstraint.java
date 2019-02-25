@@ -1,20 +1,26 @@
 package aus;
 
+import java.util.List;
+
 import core.Assignment;
 import core.BinaryConstraint;
+import core.Constraint;
 import core.Variable;
 
-public class DisjunctiveConstraint extends BinaryConstraint {
+public class DisjunctiveConstraint extends BinaryCompoundConstraint {
 
-	public DisjunctiveConstraint(Variable v1, Variable v2) {
-		super(v1, v2);
+	public DisjunctiveConstraint( Constraint lhs, Constraint rhs) {
+		super("OR", lhs ,rhs );
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	
 	@Override
-	public boolean isSatisfiedWith(Assignment assignment) {
+	public List<Variable> getScope() {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
+
+	
 
 }
