@@ -40,7 +40,7 @@ public class BacktrackingSearchSolver extends Solver{
 		Variable var= a.selectUnassignedVariable();
 		Object[] tmp = var.orderDomainValue().toArray(); 
 		for(int i=0; i<tmp.length;i++) {
-			if(csp.isConsistent(tmp[i], a)) {
+			if(csp.isConsistent(var, a,tmp[i])) {
 				a.addAssignment(var, tmp[i]);
 				Assignment result=backtrack(a,csp);
 				if(!result.isFailure()) return result;

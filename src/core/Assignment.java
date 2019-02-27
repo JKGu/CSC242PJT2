@@ -20,6 +20,7 @@ public class Assignment {
 	}
 	public static final Assignment Failure =new Assignment(true);
 	
+	
 	public void setVariables(CSP csp) {
 		for(Variable v:csp.variables) {
 			this.variables.add(v);
@@ -52,6 +53,8 @@ public class Assignment {
 		for(int i=0; i<variables.size();i++) {
 			if(!valueMap.containsKey(variables.get(i))){
 				return variables.get(i);
+			}if(valueMap.get(variables.get(i))==null) {
+				return variables.get(i);
 			}
 		}
 		return null;
@@ -69,4 +72,6 @@ public class Assignment {
 	public void remove(Object key, Object value) {
 		this.valueMap.remove(key, value);
 	}
+	
+	
 }

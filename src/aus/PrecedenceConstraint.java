@@ -20,15 +20,14 @@ public class PrecedenceConstraint extends BinaryConstraint  {
 	public boolean isSatisfiedWith(Assignment assignment) {
 		Object v1=assignment.getValue(this.v1);
 		Object v2=assignment.getValue(this.v2);
-		
 		if (v1==null||v2==null) {
 			return true;
 		}else {
+
 		int vaa1 = Integer.parseInt(v1.toString());
 		
 		int vaa2 = Integer.parseInt(v2.toString());
-		
-		return !((vaa1+d)<=vaa2);
+		return ((vaa1+d)<=vaa2);
 		}
 	}
 
@@ -38,11 +37,6 @@ public class PrecedenceConstraint extends BinaryConstraint  {
 		
 	}
 
-	@Override
-	public List<Variable> getScope() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	
 

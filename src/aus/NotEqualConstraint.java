@@ -16,7 +16,7 @@ public class NotEqualConstraint extends BinaryConstraint {
 	public boolean isSatisfiedWith(Assignment assignment) {
 		Object v1=assignment.getValue(this.v1);
 		Object v2=assignment.getValue(this.v2);
-		return v1==null||!v1.equals(v2);
+		return v1==null||v2==null||!v1.equals(v2);
 	}
 	
 	@Override

@@ -62,10 +62,10 @@ public class JobShopSchedulingCSP extends core.CSP {
 		this.constraints.add(new PrecedenceConstraint(NutsLB, CapLB,2));
 		this.constraints.add(new DisjunctiveConstraint(new PrecedenceConstraint(AxleF,AxleB,10), new PrecedenceConstraint(AxleB, AxleF,10)));
 	}
-	//TODO
+
 	
 	public static void main(String[] args) {
-		//TODO
+
 		System.out.println("Job-shop scheduling problem (AIMA 6.1.2)");
 		CSP csp = new JobShopSchedulingCSP();
 		System.out.println(csp);

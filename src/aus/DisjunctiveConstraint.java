@@ -11,16 +11,9 @@ public class DisjunctiveConstraint extends BinaryCompoundConstraint {
 
 	public DisjunctiveConstraint( Constraint lhs, Constraint rhs) {
 		super("OR", lhs ,rhs );
-		// TODO Auto-generated constructor stub
 	}
 	
 	
-	@Override
-	public List<Variable> getScope() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	
 
 }
