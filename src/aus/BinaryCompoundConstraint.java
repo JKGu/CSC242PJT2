@@ -32,7 +32,7 @@ public class BinaryCompoundConstraint implements Constraint {
 	public boolean isSatisfiedWith(Assignment assignment) {
 		switch(connective) {
 		case "OR"://NAND
-		return !(lhs.isSatisfiedWith(assignment)&&rhs.isSatisfiedWith(assignment));
+		return lhs.isSatisfiedWith(assignment)||rhs.isSatisfiedWith(assignment);
 		case "AND":
 		return lhs.isSatisfiedWith(assignment) && rhs.isSatisfiedWith(assignment);
 		}
