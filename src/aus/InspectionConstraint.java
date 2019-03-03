@@ -26,5 +26,11 @@ public class InspectionConstraint extends BinaryConstraint {
 		return (vaa1<vaa2);
 		
 	}
+	
+	@Override
+	public String toString() {
+		return v1.toString() + " < " + v2.toString();
+		
+	}
 
 }
