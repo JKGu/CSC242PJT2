@@ -27,11 +27,12 @@ public class BinaryCompoundConstraint implements Constraint {
 	public List<Variable> getScope() {
 		return this.scope;
 	}
+	
 
 	@Override
 	public boolean isSatisfiedWith(Assignment assignment) {
 		switch(connective) {
-		case "OR"://NAND
+		case "OR":
 		return lhs.isSatisfiedWith(assignment)||rhs.isSatisfiedWith(assignment);
 		case "AND":
 		return lhs.isSatisfiedWith(assignment) && rhs.isSatisfiedWith(assignment);

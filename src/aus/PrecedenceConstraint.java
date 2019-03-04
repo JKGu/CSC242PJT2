@@ -22,13 +22,18 @@ public class PrecedenceConstraint extends BinaryConstraint  {
 		Object v2=assignment.getValue(this.v2);
 		if (v1==null||v2==null) {
 			return true;
-		}else {
+		} 
 
 		int vaa1 = Integer.parseInt(v1.toString());
 		
 		int vaa2 = Integer.parseInt(v2.toString());
-		return ((vaa1+d)<=vaa2);
-		}
+		
+		if((vaa1+d)<=vaa2) {
+			return true;
+		} 
+		
+		return false;
+
 	}
 
 	@Override

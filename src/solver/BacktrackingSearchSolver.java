@@ -32,8 +32,9 @@ public class BacktrackingSearchSolver extends Solver{
 	remove {var = value} and inferences from assignment
 	return failure
 	*/
-	
+
 	public Assignment backtrack(Assignment a, CSP csp) {
+
 		if(a.isComplete()) {
 			return a;
 		}

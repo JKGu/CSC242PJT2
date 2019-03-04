@@ -52,6 +52,8 @@ public class JobShopSchedulingCSP extends core.CSP {
 		this.constraints.add(new PrecedenceConstraint(AxleF, WheelLF,10));
 		this.constraints.add(new PrecedenceConstraint(AxleB, WheelRB,10));
 		this.constraints.add(new PrecedenceConstraint(AxleB, WheelLB,10));
+		this.constraints.add(new PrecedenceConstraint(AxleF,AxleB,10));//
+		this.constraints.add(new PrecedenceConstraint(AxleB, AxleF,10));//
 		this.constraints.add(new PrecedenceConstraint(WheelRF, NutsRF,1));
 		this.constraints.add(new PrecedenceConstraint(WheelLF, NutsLF,1));
 		this.constraints.add(new PrecedenceConstraint(WheelRB, NutsRB,1));
@@ -62,10 +64,10 @@ public class JobShopSchedulingCSP extends core.CSP {
 		this.constraints.add(new PrecedenceConstraint(NutsLB, CapLB,2));
 		this.constraints.add(new DisjunctiveConstraint(new PrecedenceConstraint(AxleF,AxleB,10), new PrecedenceConstraint(AxleB, AxleF,10)));
 		//Inspection must be finished after the hubcaps are done
-		this.constraints.add(new PrecedenceConstraint(CapRF,Inspect,1));
-		this.constraints.add(new PrecedenceConstraint(CapLF,Inspect,1));
-		this.constraints.add(new PrecedenceConstraint(CapRB,Inspect,1));
-		this.constraints.add(new PrecedenceConstraint(CapLB,Inspect,1));
+		this.constraints.add(new InspectionConstraint(CapRF,Inspect));
+		this.constraints.add(new InspectionConstraint(CapLF,Inspect));
+		this.constraints.add(new InspectionConstraint(CapRB,Inspect));
+		this.constraints.add(new InspectionConstraint(CapLB,Inspect));
 	}
 
 	
