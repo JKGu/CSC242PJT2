@@ -5,6 +5,7 @@ import solver.*;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.LinkedList;
 
 /**
  * Constraint satisfaction problem for coloring the map of Australia,
@@ -17,7 +18,7 @@ public class AustraliaCSP extends core.CSP {
 	 * Australia.
 	 */
 	public AustraliaCSP() {
-		this.variables = new HashSet<core.Variable>();
+		this.variables = new LinkedList<core.Variable>();
 		Variable WA = new Variable("WA", Domain.rgbDomain());
 		this.variables.add(WA);
 		Variable NT = new Variable("NT", Domain.rgbDomain());

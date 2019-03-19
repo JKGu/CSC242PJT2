@@ -1,9 +1,10 @@
 package core;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 
 public class CSP {
-	protected HashSet<core.Variable> variables;
+	protected LinkedList<core.Variable> variables;
 	protected HashSet<core.Constraint> constraints;
 	
 	public boolean isConsistent(Variable var, Assignment a, Object value) {

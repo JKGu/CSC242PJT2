@@ -2,6 +2,7 @@ package aus;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.LinkedList;
 
 import core.*;
 
@@ -15,7 +16,7 @@ import core.*;
 public class JobShopSchedulingCSP extends core.CSP {
 	
 	public JobShopSchedulingCSP() {
-		this.variables = new HashSet<core.Variable>();
+		this.variables = new LinkedList<core.Variable>();
 		Variable AxleF = new Variable("AxleF", Domain.jssDomain());
 		this.variables.add(AxleF);
 		Variable AxleB = new Variable("AxleB", Domain.jssDomain());
@@ -48,12 +49,11 @@ public class JobShopSchedulingCSP extends core.CSP {
 		this.variables.add(Inspect);
 		
 		this.constraints = new HashSet<core.Constraint>();
+		
 		this.constraints.add(new PrecedenceConstraint(AxleF, WheelRF,10));
 		this.constraints.add(new PrecedenceConstraint(AxleF, WheelLF,10));
 		this.constraints.add(new PrecedenceConstraint(AxleB, WheelRB,10));
 		this.constraints.add(new PrecedenceConstraint(AxleB, WheelLB,10));
-		this.constraints.add(new PrecedenceConstraint(AxleF,AxleB,10));//
-		this.constraints.add(new PrecedenceConstraint(AxleB, AxleF,10));//
 		this.constraints.add(new PrecedenceConstraint(WheelRF, NutsRF,1));
 		this.constraints.add(new PrecedenceConstraint(WheelLF, NutsLF,1));
 		this.constraints.add(new PrecedenceConstraint(WheelRB, NutsRB,1));
@@ -63,11 +63,11 @@ public class JobShopSchedulingCSP extends core.CSP {
 		this.constraints.add(new PrecedenceConstraint(NutsRB, CapRB,2));
 		this.constraints.add(new PrecedenceConstraint(NutsLB, CapLB,2));
 		this.constraints.add(new DisjunctiveConstraint(new PrecedenceConstraint(AxleF,AxleB,10), new PrecedenceConstraint(AxleB, AxleF,10)));
-		//Inspection must be finished after the hubcaps are done
-		this.constraints.add(new InspectionConstraint(CapRF,Inspect));
-		this.constraints.add(new InspectionConstraint(CapLF,Inspect));
-		this.constraints.add(new InspectionConstraint(CapRB,Inspect));
-		this.constraints.add(new InspectionConstraint(CapLB,Inspect));
+		
+		this.constraints.add(new PrecedenceConstraint(CapRF,Inspect, 1));
+		this.constraints.add(new PrecedenceConstraint(CapLF,Inspect, 1));
+		this.constraints.add(new PrecedenceConstraint(CapRB,Inspect, 1));
+		this.constraints.add(new PrecedenceConstraint(CapLB,Inspect, 1));
 	}
 
 	

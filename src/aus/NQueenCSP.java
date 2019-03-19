@@ -2,6 +2,8 @@ package aus;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Scanner;
 
 import core.Assignment;
 import core.CSP;
@@ -12,7 +14,7 @@ import core.Variable;
 public class NQueenCSP extends core.CSP {
 	
 	public NQueenCSP(int n) {
-		this.variables = new HashSet<core.Variable>();
+		this.variables = new LinkedList<core.Variable>();
 		
 		for(Integer nOfQ = 1; nOfQ <=n; nOfQ++) {
 			Variable queen = new Variable("Queen "+nOfQ.toString(), Domain.nqDomain(n));
@@ -35,8 +37,10 @@ public class NQueenCSP extends core.CSP {
 	
 	public static void main(String[] args) {
 
-		System.out.println("Job-shop scheduling problem (AIMA 6.1.2)");
-		CSP csp = new NQueenCSP(8);
+		System.out.print("N Queens problem (AIMA 6.1.2)\nPlease enter the number of queens:");
+		Scanner scan=new Scanner(System.in);
+		int n=scan.nextInt();
+		CSP csp = new NQueenCSP(n);
 		System.out.println(csp);
 		System.out.println("Backtracking search solver");
 		Solver solver = new solver.BacktrackingSearchSolver();
